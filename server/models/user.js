@@ -12,14 +12,10 @@ module.exports = (sequelize, DataTypes) => {
       models.User.hasMany(models.Room, { foreignKey: 'userId' });
       models.User.hasMany(models.Note, { foreignKey: 'userId' });
       models.User.hasMany(models.Mate, { foreignKey: 'userId' });
-      models.User.hasMany(models.Like, {
-        foreignKey: 'userId',
-        targetKey: 'targetId',
-      });
-      models.User.hasMany(models.Message, {
-        foreignKey: 'originId',
-        targetKey: 'targetId',
-      });
+      models.User.hasMany(models.Like, { foreignKey: 'userId' });
+      models.User.hasMany(models.Like, { foreignKey: 'targetId' });
+      models.User.hasMany(models.Message, { foreignKey: 'originId' });
+      models.User.hasMany(models.Message, { foreignKey: 'targetId' });
     }
   }
   User.init(
