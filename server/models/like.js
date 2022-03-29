@@ -1,7 +1,5 @@
 'use strict';
-const {
-  Model
-} = require('sequelize');
+const { Model } = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
   class Like extends Model {
     /**
@@ -11,16 +9,24 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      models.Like.belongsTo(models.User, {
+        foreignKey: 'userId',
+        targetKey: 'targetId',
+      });
+      models.Like.belongsTo(models.Room, { foreignKey: 'roomId' });
     }
   }
-  Like.init({
-    room_id: DataTypes.INTEGER,
-    target_id: DataTypes.INTEGER,
-    user_id: DataTypes.INTEGER,
-    checked: DataTypes.BOOLEAN
-  }, {
-    sequelize,
-    modelName: 'Like',
-  });
+  Like.init(
+    {
+      room_id: DataTypes.INTEGER,
+      target_id: DataTypes.INTEGER,
+      user_id: DataTypes.INTEGER,
+      checked: DataTypes.BOOLEAN,
+    },
+    {
+      sequelize,
+      modelName: 'Like',
+    }
+  );
   return Like;
 };
