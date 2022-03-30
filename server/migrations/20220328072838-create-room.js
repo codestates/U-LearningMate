@@ -6,55 +6,55 @@ module.exports = {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
       },
       link: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
       },
       channel: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
       },
       title: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
       },
       number_of_lectures: {
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
       },
       user_id: {
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
       },
       is_full: {
-        type: Sequelize.BOOLEAN
+        type: Sequelize.BOOLEAN,
       },
       number_of_persons: {
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
       },
       start_date: {
-        type: Sequelize.DATE
+        type: Sequelize.DATE,
       },
       end_date: {
-        type: Sequelize.DATE
+        type: Sequelize.DATE,
       },
       question: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
       },
       comment: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
       },
       FCFS: {
-        type: Sequelize.BOOLEAN
+        type: Sequelize.BOOLEAN,
       },
       createdAt: {
         allowNull: false,
-        type: Sequelize.DATE
+        type: Sequelize.DATE,
       },
       updatedAt: {
         allowNull: false,
-        type: Sequelize.DATE
-      }
+        type: Sequelize.DATE,
+      },
     });
   },
   async down(queryInterface, Sequelize) {
     await queryInterface.dropTable('Rooms');
-  }
+  },
 };
