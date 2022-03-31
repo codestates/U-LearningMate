@@ -1,6 +1,7 @@
 # U-LearningMate
 ![U-LearnigMate-mini1](https://user-images.githubusercontent.com/91917997/159379490-d51271a7-34a9-4fe5-b8f1-9e93bb268f84.png)
 
+http://ulearningmate-client.s3-website.ap-northeast-2.amazonaws.com/
 
 <h1> 소개 </h1>
 유튜브(U) + 학습(Learning) + 친구(Mate) 를 합친 U-LearnigMate입니다.
