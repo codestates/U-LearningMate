@@ -28,44 +28,37 @@ const BackgroundWrap = styled.div`
 const LandingTextWrap = styled.div`
   max-width: 1200px;
   margin-left: 5%;
-  /* border: 2px solid black; */
-`;
-const JoinBtn = styled.button`
-  display: block;
-  /* background: #ffffff; */
-  top: 55%;
-  right: 40%;
-  border: 3px solid indianred;
-  border-radius: 10px;
-  width: 15%;
-  height: 55px;
-  margin: 19px 0 8px;
-  font-weight: bold;
-  /* font-size: 100; */
-  background-color: transparent;
-  &:hover {
-    background: #faf2f2;
-    /* text-decoration: underline; */
-      margin-bottom: 4px;padding: 4px;
-      margin-right: 4px;padding: 4px;
-      box-shadow: 4px 4px 4px red;
+  padding-top: 20%;
+  border: 1px solid black;
+
+  color: white;
+  font-size: 20px;
+
+  @media screen and (max-width: 500px) {
+    padding-top: 10%;
+  }
+
+  .start-btn-section {
+    display: flex;
+    background-color: red;
+    width: 300px;
+    justify-content: center;
+    border-radius: 100px;
+    cursor: pointer;
   }
 `;
+
 const LandingPart1 = () => {
   return (
     <BackgroundWrap>
       <LandingTextWrap>
-        <Link to="/main">
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <JoinBtn>시 작 하 기</JoinBtn>
-        </Link>
+        <h1>유튜브와 함께</h1>
+        <h1>강의를 시작해보세요</h1>
+        <div className="start-btn-section">
+          <Link to="/Main">
+            <h1>시작</h1>
+          </Link>
+        </div>
       </LandingTextWrap>
     </BackgroundWrap>
   );

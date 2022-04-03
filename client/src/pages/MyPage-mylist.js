@@ -1,7 +1,5 @@
-import MylistComponent from "../components/MyPageComponents/MyPageMyList";
-
 const Mylist = () => {
-    return <div><MylistComponent/></div>;
+    return <div>MyPage-mylist Page</div>;
   };
   
   export default Mylist;
