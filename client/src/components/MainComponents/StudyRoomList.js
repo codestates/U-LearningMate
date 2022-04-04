@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { useState, useEffect } from 'react';
+// import Rooms from './Room';
 
 import all from '../../icons/All-icon.png';
 import economy from '../../icons/Economy-icon.png';
@@ -11,6 +12,8 @@ import exercise from '../../icons/Exercise-icon.png';
 import cooking from '../../icons/Cooking-icon.png';
 import art from '../../icons/Art-icon.png';
 import etc from '../../icons/Etc-icon.png';
+
+import { useDispatch, useSelector } from 'react-redux';
 
 const TagContainer = styled.div`
   max-width: 1200px;
@@ -29,6 +32,8 @@ const TagContainer = styled.div`
   }
   .tag-box {
     text-align: center;
+    cursor: pointer;
+
     :hover {
       background-color: #faf2f2;
       border-radius: 50px;
@@ -57,8 +62,11 @@ const TagContainer = styled.div`
 
 const ListContainer = styled.div`
   max-width: 1200px;
-  border: 2px solid black;
   margin: 100px auto 20px;
+
+  @media screen and (max-width: 450px) {
+    margin-top: 40px;
+  }
 
   .list-container-box {
     width: 100%;
@@ -77,16 +85,29 @@ const ListContainer = styled.div`
     width: 386px;
     height: 300px;
     text-align: center;
-    border: 1px solid black;
+    border: 1px solid #9d9898;
     border-radius: 50px;
+    box-shadow: 2px 2px 2px 2px gray;
+
     :hover {
       background-color: #faf2f2;
       border-radius: 50px;
+    }
+
+    @media screen and (max-width: 450px) {
+      width: 70%;
+      height: 225px;
     }
   }
 `;
 
 const StudyRoomList = () => {
+  const state = useSelector((state) => state.studyRoomListReducer);
+
+  const { room } = state;
+
+  const dispatch = useDispatch();
+
   const tagData = [
     '전체',
     '외국어',
@@ -165,6 +186,9 @@ const StudyRoomList = () => {
                 </li>
               );
             })}
+            {/* {room.map((room, idx) => (
+              <Rooms room={room} key={idx} />
+            ))} */}
           </ul>
         </div>
       </ListContainer>

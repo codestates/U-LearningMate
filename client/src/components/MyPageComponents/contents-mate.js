@@ -87,13 +87,13 @@ function ContentsMate(props) {
   return (
     <Section>
       <Inner>
-        <Box type="date" name="startday"></Box>
+        {/* <Box type="date" name="startday"></Box> */}
         <ContentsBlock>
           <RowGroup>
-            <ContentBox>글1</ContentBox>
-            <ContentBox>글1</ContentBox>
-            <ContentBox>글1</ContentBox>
-            <ContentBox>글1</ContentBox>
+            <ContentBox>글1<button>신청취소</button></ContentBox>
+            <ContentBox>글1<button>신청취소</button></ContentBox>
+            <ContentBox>글1<button>신청취소</button></ContentBox>
+            <ContentBox>글1<button>신청취소</button></ContentBox>
           </RowGroup>
         </ContentsBlock>
       </Inner>

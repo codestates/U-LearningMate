@@ -33,7 +33,7 @@ const MylistComponent = () => {
           <Title2>회원정보수정</Title2>
         </Link>
         <Link to="/mypage/mylist">
-          <Title2>작성/신청내역 관리</Title2>
+          <Title2>/작성,신청내역 관리</Title2>
         </Link>
         <br/>
         <Tab/>

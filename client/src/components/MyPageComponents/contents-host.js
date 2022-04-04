@@ -88,13 +88,13 @@ function ContentsHost(props) {
   return (
     <Section>
       <Inner>
-        <Box type="date" name="startday"></Box>
+        {/* <Box type="date" name="startday"></Box> */}
         <ContentsBlock>
           <RowGroup>
-            <ContentBox>글1</ContentBox>
-            <ContentBox>글1</ContentBox>
-            <ContentBox>글1</ContentBox>
-            <ContentBox>글1</ContentBox>
+            <ContentBox>글1<button>선택</button></ContentBox>
+            <ContentBox>글1<button>선택</button></ContentBox>
+            <ContentBox>글1<button>선택</button></ContentBox>
+            <ContentBox>글1<button>선택</button></ContentBox>
           </RowGroup>
         </ContentsBlock>
       </Inner>

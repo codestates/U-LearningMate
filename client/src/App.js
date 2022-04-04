@@ -10,6 +10,7 @@ import ReqStudyRoom from './pages/ReqStudyRoom';
 import CreateStudyRoom from './pages/CreateStudyRoom';
 import Header from './components/Header';
 import Footer from './components/Footer';
+import Resister from './pages/Resister';
 
 function App() {
   return (
@@ -40,6 +41,9 @@ function App() {
           </Route>
           <Route path="/reqstudyroom/:id">
             <ReqStudyRoom />
+          </Route>
+          <Route path="/register">
+            <Resister />
           </Route>
         </Switch>
       </BrowserRouter>
