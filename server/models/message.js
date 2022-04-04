@@ -15,13 +15,13 @@ module.exports = (sequelize, DataTypes) => {
   }
   Message.init(
     {
-      origin_id: DataTypes.INTEGER,
-      target_id: DataTypes.INTEGER,
+      originId: DataTypes.INTEGER,
+      targetId: DataTypes.INTEGER,
       title: DataTypes.STRING,
       content: DataTypes.STRING,
-      read_check: DataTypes.BOOLEAN,
+      readCheck: DataTypes.BOOLEAN,
       deleted: DataTypes.BOOLEAN,
-      send_at: DataTypes.DATE,
+      sendAt: DataTypes.DATE,
     },
     {
       sequelize,

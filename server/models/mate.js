@@ -15,8 +15,8 @@ module.exports = (sequelize, DataTypes) => {
   }
   Mate.init(
     {
-      room_id: DataTypes.INTEGER,
-      user_id: DataTypes.INTEGER,
+      roomId: DataTypes.INTEGER,
+      userId: DataTypes.INTEGER,
       answer: DataTypes.STRING,
       accepted: DataTypes.BOOLEAN,
     },

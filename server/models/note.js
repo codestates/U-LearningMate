@@ -15,8 +15,8 @@ module.exports = (sequelize, DataTypes) => {
   }
   Note.init(
     {
-      room_id: DataTypes.INTEGER,
-      user_id: DataTypes.INTEGER,
+      roomId: DataTypes.INTEGER,
+      userId: DataTypes.INTEGER,
       content: DataTypes.STRING,
     },
     {
