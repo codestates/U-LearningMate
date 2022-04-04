@@ -12,9 +12,13 @@ export const signupStart = (email,nickname,password,mobile,level,team) => async 
     .then((res) => {
         console.log("res1",res)
         if (res.data.message !== "ok") {
+          alert("회원가입실패");
+          document.location.href = '/register';
           return false;
         } else {
+                document.location.href = '/';
                 dispatch({type:SIGNUP_START,payload:{signInfo}});
+                alert("회원가입완료");
                 return true
             }
         })};

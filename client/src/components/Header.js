@@ -60,20 +60,20 @@ const Header = () => {
     <>
       <HeaderContainer>
         <div className="logo">
-          <a href="/">
+          <Link to="/main">
             <img className="logo-image" src={logo2} />
-          </a>
+          </Link>
         </div>
         <MenuContainer>
           <div className="write-icon">
-            <a href="/createstudyroom">
+            <Link to="/createstudyroom">
               <img className="write-image" src={write} />
-            </a>
+            </Link>
           </div>
           <div className="person-icon">
-            <a>
+            <Link to="/mypage/myinfo">
               <img src={person} />
-            </a>
+            </Link>
           </div>
           <div className="login-icon">
               <LoginModal/>

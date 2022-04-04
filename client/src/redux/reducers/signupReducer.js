@@ -6,7 +6,7 @@ const signupReducer = (state = 회원가입State, action) => {
   console.log("action",action)
   switch (type) {
     case SIGNUP_START:
-      console.log("로그인리듀서.js에서",payload)
+      console.log("signupReducer.js에서",payload)
       return {...state.user,payload}
     default:
       return state;

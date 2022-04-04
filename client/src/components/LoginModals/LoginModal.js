@@ -7,7 +7,39 @@ import loginicon from '../../icons/Login-icon.png';
 import {ModalContainer,ModalBtn,ModalBackdrop,ModalView} from './Loginstyled.js';
 import { useDispatch, useSelector } from "react-redux";
 import  {loginStart}  from '../../redux/actions/userActions';
+import GoogleLogin from 'react-google-login';
+import { useGoogleLogin } from 'react-google-login';
+import { googleStart } from '../../redux/actions/googleActions';
 // import './Login.css'
+const LoginBtn = styled.button`
+  display: block;
+  background: #000;
+  color: #eee;
+  width: 100%;
+  height: 51px;
+  margin: 19px 0 8px;
+  text-decoration: none;
+  &:hover {
+    background: #ffffff;
+    text-decoration: underline;
+    color: #000;
+  }
+`;
+
+const JoinBtn = styled.button`
+  display: block;
+  background: #ffffff;
+  border: 1px solid #000;
+  width: 100%;
+  height: 51px;
+  margin: 19px 0 8px;
+  text-decoration: none;
+  &:hover {
+    background: #aaa;
+    text-decoration: underline;
+  }
+`;
+
 
 const LoginModal = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -35,9 +67,10 @@ const LoginModal = () => {
   const [state, setState] = useState({
     email: "",
     password: "",
+    name:"",
   });
-
-  const { email, password } = state;
+  const [tokenId,setTokenId] = useState("");
+  const { email, password,name } = state;
 
   const handleChange = (e) => {
     let { name, value } = e.target;
@@ -51,12 +84,14 @@ const LoginModal = () => {
     // setState({ email: "", password: "" });
     
     dispatch(loginStart(email,password));
+    console.log("로그인스타트함수만 써도 안에 디스패치 있어서될것 같은데",loginStart(email,password))
     // console.log("$$$$$$$$$$$작동하나?",indexInfo.IsLoginBoolean)
     // setTimeout(function(){if(indexInfo.IsLoginBoolean === true){
     //   setIsLogin(true)
     //   setIsOpen(false)
     // }},1000)
     console.log("$$$$$$$$$$$$",setIsLogin);
+    setIsOpen(!isOpen)
     // if(indexInfo.IsLoginBoolean === "true"){
     //   console.log("$$$$$$$$$$$작동하나?")
     //   setIsLogin(true)
@@ -72,16 +107,25 @@ const LoginModal = () => {
   //       .catch((error) => dispatch(loginError(error.message)));
   //   };
   // };
+  const { signIn, loaded } = useGoogleLogin({
+  });
 
+const responseGoogle = (response) => {
+  setIsOpen(!isOpen);
+  setState({...state,...response.profileObj});
+  setTokenId(response.tokenId);
+  console.log("response",response.tokenId);
+  dispatch(googleStart(response.tokenId));
+}
 
   return (
     <>
-    <ModalBtn 
+    {indexInfo === undefined ?<ModalBtn 
     // TODO : 클릭하면 Modal이 열린 상태(isOpen)를 boolean 타입으로 변경하는 메소드가 실행되어야 합니다. 
     onClick={()=>{openModalHandler()}}
     >
       {indexInfo === undefined ?<img src={loginicon} width="70%" align="top" alt="로그인" />:`${indexInfo.nickname}님`}
-    </ModalBtn>
+    </ModalBtn>:`${indexInfo.nickname}님`}
     <ModalContainer>
     { isOpen === true ? 
       <ModalBackdrop 
@@ -122,7 +166,18 @@ const LoginModal = () => {
             <i className="fas fa-sign-in-alt"></i> Sign in
           </button>
           <hr />
-          <div className="social-login">
+          <div className="alert-box">{errorMessage}</div>
+
+              {/* <LoginBtn onClick={handleLogin}>LOGIN</LoginBtn> */}
+              {/* <JoinBtn onClick={handleSignup}>회원가입</JoinBtn> */}
+              <GoogleLogin
+              clientId="133857767007-bbfmnq7mf9t27c3ugkm10ukf0l5cgqdb.apps.googleusercontent.com"
+              buttonText="구글로 LOGIN 시작하기"
+              onSuccess={responseGoogle}
+              onFailure={responseGoogle}
+              cookiePolicy={'single_host_origin'}
+              />
+          {/* <div className="social-login">
             <button
               className="btn google-btn social-btn"
               type="button"
@@ -132,7 +187,7 @@ const LoginModal = () => {
                 <i className="fab fa-google-plus-g"></i> Sign in with Google+
               </span>{" "}
             </button>
-          </div>
+          </div> */}
           <hr />
           <p>Don't have an account!</p>
           <Link to="/register">
@@ -140,6 +195,7 @@ const LoginModal = () => {
               className="btn btn-primary btn-block"
               type="button"
               id="btn-signup"
+              onClick={()=>setIsOpen(!isOpen)}
             >
               <i className="fas fa-user-plus"></i> Sign up New Account
             </button>

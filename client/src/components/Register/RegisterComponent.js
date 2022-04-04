@@ -14,7 +14,7 @@ const Container = styled.div`
 
 const RegisterComponent = () => {
   let signupInfo = useSelector(state=>state.signupReducer);
-  console.log("로그인모달에서 로그인리듀서가처리한 스테이트값",signupInfo);
+  console.log("RegisterComponent.js의 로그인모달에서 로그인리듀서가처리한 스테이트값",signupInfo);
   const dispatch = useDispatch();
 
 
@@ -23,7 +23,7 @@ const RegisterComponent = () => {
     nickname:"",
     password: "",
     passwordConfirm: "",
-    mobile: "010-1234-2337",
+    mobile: "016-1234-4337",
     level: "고급자",
     team: "kt wiz",
   });
@@ -34,7 +34,7 @@ const RegisterComponent = () => {
     let { name, value } = e.target;
     setState({ ...state, [name]: value });
     // console.log(name,value)
-    console.log(state)
+    // console.log(state)
 
   };
 
@@ -43,6 +43,7 @@ const RegisterComponent = () => {
     // setState({ email: "", password: "" });
     
     dispatch(signupStart(email,nickname,password,mobile,level,team));
+    // console.log("이것만 써도 될것같은데 왜 디스패치쓰지?",signupStart(email,nickname,password,mobile,level,team))
   };
 
   return (

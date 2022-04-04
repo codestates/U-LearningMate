@@ -7,7 +7,7 @@ const loginReducer = (state = 로그인State, action) => {
   switch (type) {
     case LOGIN_START:
       payload.IsLoginBoolean = true
-      console.log("로그인리듀서.js에서",payload)
+      console.log("loginReducer.js에서payload",payload)
       return {...state.user,payload}
     default:
       return state;

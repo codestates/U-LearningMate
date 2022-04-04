@@ -1,5 +1,6 @@
+import Myinfolist from "../components/MyPageComponents/MyPageMyInfo";
 const Myinfo = () => {
-    return <div>MyPage-myinfo Page</div>;
+    return <div><Myinfolist/></div>;
   };
   
   export default Myinfo;
