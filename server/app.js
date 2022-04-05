@@ -1,5 +1,5 @@
 const express = require('express');
-const indexRouter = require('./routers');
+const indexRouter = require('./routes');
 const cors = require('cors');
 const cookieParser = require('cookie-parser');
 const morgan = require('morgan');
