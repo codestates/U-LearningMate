@@ -9,14 +9,14 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      Model.Note.belongsTo(User, { foreignKey: 'userId' });
-      Model.Note.belongsTo(Room, { foreignKey: 'roomId' });
+      models.Note.belongsTo(models.User, { foreignKey: 'userId' });
+      models.Note.belongsTo(models.Room, { foreignKey: 'roomId' });
     }
   }
   Note.init(
     {
-      room_id: DataTypes.INTEGER,
-      user_id: DataTypes.INTEGER,
+      roomId: DataTypes.INTEGER,
+      userId: DataTypes.INTEGER,
       content: DataTypes.STRING,
     },
     {

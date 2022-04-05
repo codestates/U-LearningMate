@@ -16,9 +16,9 @@ module.exports = (sequelize, DataTypes) => {
   }
   Like.init(
     {
-      room_id: DataTypes.INTEGER,
-      target_id: DataTypes.INTEGER,
-      user_id: DataTypes.INTEGER,
+      roomId: DataTypes.INTEGER,
+      targetId: DataTypes.INTEGER,
+      userId: DataTypes.INTEGER,
       checked: DataTypes.BOOLEAN,
     },
     {

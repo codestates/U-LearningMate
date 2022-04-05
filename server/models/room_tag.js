@@ -15,8 +15,8 @@ module.exports = (sequelize, DataTypes) => {
   }
   Room_tag.init(
     {
-      room_id: DataTypes.INTEGER,
-      tag_id: DataTypes.INTEGER,
+      roomId: DataTypes.INTEGER,
+      tagId: DataTypes.INTEGER,
     },
     {
       sequelize,
