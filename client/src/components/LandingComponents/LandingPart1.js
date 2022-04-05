@@ -1,7 +1,27 @@
 import { Link } from 'react-router-dom';
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 
 import landing1 from './LandingImages/Landing-Part1.jpg';
+
+const textAnimation = keyframes` {
+
+  0% {
+    letter-spacing: -0.5em;
+    -webkit-transform: translateZ(-800px);
+            transform: translateZ(-800px);
+    -webkit-filter: blur(12px);
+            filter: blur(12px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateZ(0);
+            transform: translateZ(0);
+    -webkit-filter: blur(0);
+            filter: blur(0);
+    opacity: 1;
+  }
+}
+`;
 
 const BackgroundWrap = styled.div`
   background-image: url('https://media.vlpt.us/images/acacpp/post/4a5c0c9e-7e61-44fe-bcba-06ff492150cd/Landing-Part1.jpg');
@@ -29,23 +49,33 @@ const LandingTextWrap = styled.div`
   max-width: 1200px;
   margin-left: 5%;
   padding-top: 20%;
-  border: 1px solid black;
-
+  /* border: 1px solid black; */
+  text-shadow: 0 0 3px black;
   color: white;
   font-size: 20px;
 
-  @media screen and (max-width: 500px) {
-    padding-top: 10%;
+  > h1 {
+    animation-name: ${textAnimation};
+    animation-duration: 1s;
+    animation-delay: 0;
+    animation-iteration-count: 1;
+    animation-timing-function: linear;
   }
 
-  .start-btn-section {
+  @media screen and (max-width: 500px) {
+    padding-top: 20%;
+    font-size: 15px;
+    /* text-align: left; */
+  }
+
+  /* .start-btn-section {
     display: flex;
     background-color: red;
     width: 300px;
     justify-content: center;
     border-radius: 100px;
     cursor: pointer;
-  }
+  } */
 `;
 
 const LandingPart1 = () => {
@@ -55,7 +85,7 @@ const LandingPart1 = () => {
         <h1>유튜브와 함께</h1>
         <h1>강의를 시작해보세요</h1>
         <div className="start-btn-section">
-          <Link to="/Main">
+          <Link to="/main">
             <h1>시작</h1>
           </Link>
         </div>

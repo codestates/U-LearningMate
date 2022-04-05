@@ -11,17 +11,17 @@ import cooking from '../../icons/Cooking-icon.png';
 import art from '../../icons/Art-icon.png';
 import etc from '../../icons/Etc-icon.png';
 
-const Rooms = ({ room }) => {
-  return (
-    <div>
-      <div key={room.id} className="room">
-        <span>{room.title}</span>
-      </div>
-    </div>
-  );
-};
+// const Rooms = ({ list }) => {
+//   return (
+//     <div>
+//       <div key={list.id} className="room">
+//         <span></span>
+//       </div>
+//     </div>
+//   );
+// };
 
-export default Rooms;
+// export default Rooms;
 
 // /* <ListContainer>
 //   <div className="list-container-box">
@@ -33,8 +33,7 @@ export default Rooms;
 // //   </div>
 // // </ListContainer>; */}
 
-{
-  /* <ul className="list-section">
+/* <ul className="list-section">
 {tagData.map((tag, idx) => {
   return (
     <li
@@ -58,4 +57,3 @@ export default Rooms;
   );
 })}
 </ul> */
-}

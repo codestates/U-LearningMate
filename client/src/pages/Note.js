@@ -1,5 +1,11 @@
+import ShareNote from '../components/ShareNoteComponents/ShareNote';
+
 const Note = () => {
-    return <div>Note Page</div>;
-  };
-  
-  export default Note;
+  return (
+    <div>
+      <ShareNote />
+    </div>
+  );
+};
+
+export default Note;
