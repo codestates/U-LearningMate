@@ -1,4 +1,5 @@
 module.exports = {
-    main: require('./main'),
-    user: require('./user')
-}
+  main: require('./main'),
+  user: require('./user'),
+  auth: require('./auth'),
+};
