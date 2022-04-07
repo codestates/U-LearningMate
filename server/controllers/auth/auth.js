@@ -10,7 +10,7 @@ const client = new OAuth2Client(
 module.exports = async (req, res) => {
   // res.status(200).send('hi!');
   // console.log('auth 되냐?');
-  const token = req.body.token;
+  const token = req.body.id_token;
   const ticket = await client.verifyIdToken({
     idToken: token,
     audience: process.env.GOOGLE_CLIENT_ID,
@@ -31,10 +31,10 @@ module.exports = async (req, res) => {
   });
   if (created) {
     const data = created;
-    console.log(data);
+    // console.log(data);
     delete data.dataValues.password;
-    console.log(data.dataValues);
-    console.log(created);
+    // console.log(data.dataValues);
+    // console.log(created);
     res.status(200).json({ userInfo: data.dataValues });
   }
   const data = find;
