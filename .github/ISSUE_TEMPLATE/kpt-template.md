@@ -1,7 +1,7 @@
 ---
-name: KTP Template
-about: KTP Template
-title: "[KTP] 몇 주차 무슨 요일"
+name: KPT Template
+about: KPT Template
+title: "[KPT] 몇 주차 무슨 요일"
 labels: retrospect
 assignees: ''
 

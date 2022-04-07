@@ -1,11 +1,13 @@
 import styled from 'styled-components';
 import { useState, useEffect } from 'react';
+import { useHistory } from 'react-router-dom';
+import axios from 'axios';
 // import Rooms from './Room';
 
 import all from '../../icons/All-icon.png';
 import economy from '../../icons/Economy-icon.png';
 import english from '../../icons/English-icon.png';
-import history from '../../icons/History-icon.png';
+import historyicon from '../../icons/History-icon.png';
 import it from '../../icons/IT-icon.png';
 import science from '../../icons/Science-icon.png';
 import exercise from '../../icons/Exercise-icon.png';
@@ -14,6 +16,9 @@ import art from '../../icons/Art-icon.png';
 import etc from '../../icons/Etc-icon.png';
 
 import { useDispatch, useSelector } from 'react-redux';
+import { showRoomList } from '../../redux/actions/actions';
+import rootReducer from '../../redux/reducers/rootReducer';
+import StudyRoomDetail from '../StudyRoomComponents/StudyRoomDetail';
 
 const TagContainer = styled.div`
   max-width: 1200px;
@@ -37,6 +42,7 @@ const TagContainer = styled.div`
     :hover {
       background-color: #faf2f2;
       border-radius: 50px;
+      transform: translateY(-3px);
     }
   }
   .tag-Image {
@@ -82,8 +88,8 @@ const ListContainer = styled.div`
   .list-box {
     margin: auto;
     margin-top: 2%;
-    width: 386px;
-    height: 300px;
+    min-width: 386px;
+    min-height: 300px;
     text-align: center;
     border: 1px solid #9d9898;
     border-radius: 50px;
@@ -92,6 +98,7 @@ const ListContainer = styled.div`
     :hover {
       background-color: #faf2f2;
       border-radius: 50px;
+      transform: translateY(-3px);
     }
 
     @media screen and (max-width: 450px) {
@@ -101,12 +108,27 @@ const ListContainer = styled.div`
   }
 `;
 
-const StudyRoomList = () => {
-  const state = useSelector((state) => state.studyRoomListReducer);
+const StudyRoomList = ({ handleFilterCategory }) => {
+  const list = useSelector((state) => state.studyRoomListReducer);
 
-  const { room } = state;
+  const history = useHistory();
 
   const dispatch = useDispatch();
+
+  const roomList = () => {
+    axios
+      .get(
+        `${process.env.REACT_APP_API_URL}/matches/ullist`
+      )
+      .then((res) => {
+        console.log(res.data);
+        dispatch({ type: 'SHOW_ROOM_LIST', payload: res.data });
+      })
+      .catch((err) => console.log(err));
+  };
+  useEffect(roomList, []);
+
+  console.log(list);
 
   const tagData = [
     '전체',
@@ -123,7 +145,7 @@ const StudyRoomList = () => {
   const tagImageData = [
     all,
     english,
-    history,
+    historyicon,
     it,
     economy,
     science,
@@ -133,9 +155,18 @@ const StudyRoomList = () => {
     etc,
   ];
 
+  let [selectCategory, setSelectCategory] = useState('');
+  const getDataKey = (event) => {
+    let num = event.target.getAttribute('data-key');
+    if (num !== selectCategory) {
+      handleFilterCategory(event);
+    }
+    setSelectCategory(num);
+  };
+
   return (
     <>
-      <TagContainer>
+      <TagContainer category={selectCategory}>
         <div className="tag-container-box">
           <ul className="tag-section">
             {tagData.map((tag, idx) => {
@@ -145,6 +176,7 @@ const StudyRoomList = () => {
                   data-value={tag}
                   key={idx}
                   data-key={idx}
+                  onClick={getDataKey}
                 >
                   <img
                     className="tag-Image"
@@ -164,7 +196,7 @@ const StudyRoomList = () => {
       <ListContainer>
         <div className="list-container-box">
           <ul className="list-section">
-            {tagData.map((tag, idx) => {
+            {/* {tagData.map((tag, idx) => {
               return (
                 <li
                   className="list-box"
@@ -185,10 +217,26 @@ const StudyRoomList = () => {
                   </div>
                 </li>
               );
+            })} */}
+            {list.map((room, idx) => {
+              return (
+                <li
+                  className="list-box"
+                  key={idx}
+                  status={room.is_full}
+                  onClick={() => {
+                    history.push(
+                      room.is_full === 0
+                        ? `/studyroom/${room.id}`
+                        : alert('마감되었습니다.')
+                    );
+                  }}
+                >
+                  {room.channel}
+                  <div>{room.Tag_name}</div>
+                </li>
+              );
             })}
-            {/* {room.map((room, idx) => (
-              <Rooms room={room} key={idx} />
-            ))} */}
           </ul>
         </div>
       </ListContainer>
