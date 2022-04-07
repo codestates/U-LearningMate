@@ -6,6 +6,7 @@ const morgan = require('morgan');
 
 const app = express();
 const port = process.env.PORT || 8080;
+/*
 const whitelist = ['http://192.168.123.101:3000/'];
 const corsOptions = {
   origin: function (origin, callback) {
@@ -16,11 +17,12 @@ const corsOptions = {
     }
   },
 };
-
+*/
 app.use(
   morgan('     :method :url :status :res[content-length] - :response-time ms')
 );
-app.use(cors(corsOptions));
+//app.use(cors(corsOptions));
+app.use(cors());
 app.use(cookieParser());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
