@@ -15,7 +15,7 @@ module.exports = async (req, res) => {
     idToken: token,
     audience: process.env.GOOGLE_CLIENT_ID,
   });
-
+  console.log('token: ', token);
   const payload = ticket.getPayload(); // 데이터 핸들러
   const email = payload['email']; // 데이터 핸들러
 
@@ -29,6 +29,8 @@ module.exports = async (req, res) => {
       score: 0,
     },
   });
+  console.log('find: ', find);
+  console.log('created: ', created);
   if (created) {
     const data = created;
     // console.log(data);
