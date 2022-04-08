@@ -23,12 +23,9 @@ const RegisterComponent = () => {
     nickname:"",
     password: "",
     passwordConfirm: "",
-    mobile: "016-1234-4337",
-    level: "고급자",
-    team: "kt wiz",
   });
 
-  const { email,nickname, password,passwordConfirm,mobile,level,team} = state;
+  const { email,nickname, password,passwordConfirm} = state;
 
   const handleChange = (e) => {
     let { name, value } = e.target;
