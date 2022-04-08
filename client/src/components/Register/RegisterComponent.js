@@ -39,8 +39,8 @@ const RegisterComponent = () => {
     e.preventDefault();
     // setState({ email: "", password: "" });
     
-    dispatch(signupStart(email,nickname,password,mobile,level,team));
-    // console.log("이것만 써도 될것같은데 왜 디스패치쓰지?",signupStart(email,nickname,password,mobile,level,team))
+    dispatch(signupStart(email,nickname,password));
+    // console.log("이것만 써도 될것같은데 왜 디스패치쓰지?",signupStart(email,nickname,password))
   };
 
   return (
