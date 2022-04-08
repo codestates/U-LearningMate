@@ -7,7 +7,7 @@ export const googleStart = (tokenId) => async (dispatch)=> {
     const id_token = tokenId;
     console.log("idToken",id_token)
     let d = await axios
-      .post(`http://ec2-13-125-238-251.ap-northeast-2.compute.amazonaws.com:8080/auth/auth`, { id_token },{ withCredentials: true })
+      .post(``${process.env.REACT_APP_API_URL}/auth/auth`, { id_token },{ withCredentials: true })
       .then((res) => {
         console.log("res1",res)
         if (res.data.message !== "ok") {
