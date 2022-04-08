@@ -24,7 +24,7 @@ module.exports = {
         const tokenData = { id, email }; // 토큰이 갖게 될 데이터 : 사용자의 email 주소,  DB Users 테이블의 인덱스// 검색을 위해        
         const accessToken = generateAccessToken(tokenData);
         sendAccessToken(res, accessToken); // 쿠키로 토큰 전송
-        res.status(200).json({ message: 'ok'});
+        res.status(200).json({ message: 'ok', accessToken});
       } else {
         console.log('로그인 실패, 인증정보 불일치');
         res.status(404).send('invalid user');
