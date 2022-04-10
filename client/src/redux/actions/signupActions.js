@@ -2,11 +2,11 @@ import { SIGNUP_START } from "../types";
 import axios from 'axios';
 
 
-export const signupStart = (email,nickname,password,mobile,level,team) => async (dispatch)=> {
-    console.log("userAction으로 넘어온이메일패스워드",email,nickname,password,mobile,level,team)
-    const signInfo = {email,password,nickname,mobile,level,team} 
+export const signupStart = (email,nickname,password) => async (dispatch)=> {
+    console.log("userAction으로 넘어온이메일패스워드",email,nickname,password)
+    const signInfo = {email,password,nickname} 
     const b = await axios
-    .post(`${process.env.REACT_APP_API_URL}/users/signup`, signInfo,{
+    .post("http://ec2-13-125-238-251.ap-northeast-2.compute.amazonaws.com:8080/user/signup", signInfo,{
         withCredentials: true,
       })
     .then((res) => {
