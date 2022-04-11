@@ -7,7 +7,6 @@ const morgan = require('morgan');
 const app = express();
 const port = process.env.PORT || 8080;
 
-
 /*
 const whitelist = ['http://192.168.123.101:3000',
  		   'http://192.168.0.168:3000',
@@ -66,4 +65,3 @@ app.use(express.json());
 app.use('/', indexRouter);
 
 app.listen(port, () => console.log('서버 작동중', port));
-

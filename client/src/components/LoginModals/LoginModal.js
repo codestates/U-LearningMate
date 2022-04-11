@@ -56,7 +56,7 @@ const LoginModal = () => {
   };
   const outSection = useRef();
   // const handleLogin = () => {setIsLogin(!isLogin);setIsOpen(!isOpen);};
-  const handleSignup = () => {setIsSignup(!isSignup)};
+  // const handleSignup = () => {setIsSignup(!isSignup)};
   const openModalHandler = () => {
     // TODO : isOpen의 상태를 변경하는 메소드를 구현합니다.
     // if(indexInfo.IsLoginBoolean === true){
@@ -91,21 +91,14 @@ const LoginModal = () => {
     //   setIsOpen(false)
     // }},1000)
     console.log("$$$$$$$$$$$$",setIsLogin);
-    setIsOpen(!isOpen)
+    // setIsOpen(!isOpen)
     // if(indexInfo.IsLoginBoolean === "true"){
     //   console.log("$$$$$$$$$$$작동하나?")
     //   setIsLogin(true)
     //   setIsOpen(true)
     // }else{console.log("$$$$$$$$$$$작동안하는듯");setIsLogin(false)}
   };
-  // useEffect(() =>{setIsLogin(true);console.log(setIsLogin)},[dispatch])
-  // export const loginInitiate = (email, password) => {
-  //   return function (dispatch) {
-  //     dispatch(loginStart());
-  //     auth
-  //       .signInWithEmailAndPassword(email, password)actions.increaseCountAsyncThunk(
-  //       .catch((error) => dispatch(loginError(error.message)));
-  //   };
+  // useEffect(() =>{},[isOpen])
   // };
   const { signIn, loaded } = useGoogleLogin({
   });

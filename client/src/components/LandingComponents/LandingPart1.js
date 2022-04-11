@@ -24,7 +24,7 @@ const textAnimation = keyframes` {
 `;
 
 const BackgroundWrap = styled.div`
-  background-image: url('https://media.vlpt.us/images/acacpp/post/4a5c0c9e-7e61-44fe-bcba-06ff492150cd/Landing-Part1.jpg');
+  background-image: url('https://imagedelivery.net/v7-TZByhOiJbNM9RaUdzSA/086eae57-e93a-49f7-e0d9-b778fdb09500/public');
   background-size: cover;
   background-attachment: fixed;
   background-position: center;
