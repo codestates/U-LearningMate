@@ -12,7 +12,7 @@ const auth = require('./authRouter.js');
 router.use('/', main);
 router.use('/user', user);
 router.use('/auth', auth);
-// router.use('/room', room);
+//router.use('/room', room);
 // router.use('/mate', mate);
 // router.use('/note', note);
 // router.use('/message', message);
