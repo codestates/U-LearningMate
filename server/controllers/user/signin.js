@@ -18,7 +18,7 @@ module.exports = {
       // 불일치 >> 'invalid user' 메세지와 상타코드 404 반환
       if (result) { 
         console.log('로그인 성공');
-        const {id, email, nickname } = result.dataValues;
+        const {id, email, nickname, score } = result.dataValues;
         const tokenData = { id, email }; // 토큰이 갖게 될 데이터 : 사용자의 email 주소,  DB Users 테이블의 인덱스// 검색을 위해        
         const accessToken = generateAccessToken(tokenData);
         sendAccessToken(res, accessToken); // 쿠키로 토큰 전송
