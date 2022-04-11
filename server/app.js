@@ -29,7 +29,7 @@ const corsOptions = {
 };
 */
 
-/*
+
 const corsList = {
   origin: [
            //'http://192.168.123.101:3000',
@@ -39,7 +39,7 @@ const corsList = {
   credentials: true,
   methods: ['GET', 'POST', 'PATCH', 'DELETE', 'OPTIONS']
 };
-*/
+
 
 /*
   const corsAll = {
@@ -53,12 +53,12 @@ app.use(
   morgan('     :method :url :status :res[content-length] - :response-time ms')
 );
 
-//app.use(cors(corsList));
+app.use(cors(corsList));
 //app.use(cors(corsOptions));
 //app.use(cors(corsAll));
 //app.use(cors(corsOptions));
 
-app.use(cors());
+//app.use(cors());
 app.use(cookieParser());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
